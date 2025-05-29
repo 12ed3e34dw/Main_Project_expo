@@ -30,10 +30,6 @@ export default function Authorization() {
     return (
         <View style={  styles.container }>
             <Text style={ styles.main_text}>Authorization</Text>
-            <Text style={styles.text_name}>Введите имя</Text>
-            <TextInput style={styles.input_name} placeholder="Name"/>
-            <Text style={styles.text_surname}>Введите Фамилию</Text>
-            <TextInput style={styles.input_surname} placeholder="Surname"/>
             <Text style={styles.text_email}>Введите электронная почта </Text>
             <TextInput style={styles.input_email} placeholder="Email" onChangeText={setEmail}/>
             <Text style={styles.text_password}>Введите пароль</Text>
@@ -67,26 +63,6 @@ const styles_dark = StyleSheet.create({
         left:70,
         color:'white',
 
-    },
-    input_name: {
-        top:120,
-        left:10,
-        width:"95%",
-        height:"10%",
-        borderWidth: 2,
-        borderColor: '#333',
-        borderRadius: 8,
-        paddingHorizontal: 10,
-    },
-    input_surname: {
-        top:140,
-        left:10,
-        width:"95%",
-        height:"10%",
-        borderWidth: 2,
-        borderColor: '#333',
-        borderRadius: 8,
-        paddingHorizontal: 10,
     },
     input_email: {
         top:160,
@@ -127,17 +103,6 @@ const styles_dark = StyleSheet.create({
         top:'1370%',
         left:'35%',
         color:'blue',
-    },
-
-
-
-    text_name:{
-        top:'16%',
-        left:'5%',
-    },
-    text_surname: {
-        top:'19%',
-        left:'5%',
     },
     text_email: {
         top:'22%',

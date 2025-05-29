@@ -2,7 +2,7 @@ import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
 
 
-export default function App() {
+export default function Todo_Page() {
 
     const [isDarkTheme, setIsDarkTheme] = useState(true);
     const styles = isDarkTheme ? styles_dark : styles_white;
@@ -12,10 +12,18 @@ export default function App() {
 
 
     return (
-       <View style={styles.container }>
+        <View style={  styles.container }>
 
 
-       </View>
+
+
+
+
+
+
+
+
+        </View>
     );
 }
 
