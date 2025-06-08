@@ -41,7 +41,7 @@ export default function Authorization({ navigation }) {
                     <Text style={styles.button_text}>Войти</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>{ navigation.navigate('Registration_Page')}}>
+            <TouchableOpacity>
                 <Text style={styles.text_url_regist}>Создать аккаунт</Text>
             </TouchableOpacity>
         </View>

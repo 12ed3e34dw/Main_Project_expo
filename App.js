@@ -1,6 +1,15 @@
 import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
-import AuthService from './src/screens/Auth/Authorization';
+
+
+
+//Main
+import Auth from './src/screens/Auth/Authorization';
+
+
+
+//Test Page
+import Register from './src/screens/Auth/Registration_Page';
 
 export default function App() {
 
@@ -15,7 +24,7 @@ export default function App() {
         <View style={styles.container }>
 
 
-         <AuthService />
+       <Register/>
 
         </View>
     );
