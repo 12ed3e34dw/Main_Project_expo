@@ -1,6 +1,6 @@
 import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
-
+import AuthService from './src/screens/Auth/Authorization';
 
 export default function App() {
 
@@ -12,10 +12,12 @@ export default function App() {
 
 
     return (
-       <View style={styles.container }>
+        <View style={styles.container }>
 
 
-       </View>
+         <AuthService />
+
+        </View>
     );
 }
 

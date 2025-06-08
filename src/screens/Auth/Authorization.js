@@ -2,7 +2,7 @@ import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
 
 
-export default function Authorization() {
+export default function Authorization({ navigation }) {
 
     const [isDarkTheme, setIsDarkTheme] = useState(true);
     const styles = isDarkTheme ? styles_dark : styles_white;
@@ -41,7 +41,7 @@ export default function Authorization() {
                     <Text style={styles.button_text}>Войти</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>{}}>
+            <TouchableOpacity onPress={()=>{ navigation.navigate('Registration_Page')}}>
                 <Text style={styles.text_url_regist}>Создать аккаунт</Text>
             </TouchableOpacity>
         </View>
@@ -55,7 +55,7 @@ const styles_dark = StyleSheet.create({
         height:80,
         backgroundColor: '#333',
         top:260,
-        left:105,
+        left:125,
         borderRadius:10,
     },
     button_text: {
@@ -68,7 +68,7 @@ const styles_dark = StyleSheet.create({
         top:160,
         left:10,
         width:"95%",
-        height:"10%",
+        height:"15%",
         borderWidth: 2,
         borderColor: '#333',
         borderRadius: 8,
@@ -78,7 +78,7 @@ const styles_dark = StyleSheet.create({
         top:180,
         left:10,
         width:"95%",
-        height:"10%",
+        height:"15%",
         borderWidth: 2,
         borderColor: '#333',
         borderRadius: 8,
@@ -88,7 +88,7 @@ const styles_dark = StyleSheet.create({
         top:200,
         left:10,
         width:"95%",
-        height:"10%",
+        height:"15%",
         borderWidth: 2,
         borderColor: '#333',
         borderRadius: 8,
@@ -100,26 +100,21 @@ const styles_dark = StyleSheet.create({
         fontSize:20,
     },
     text_url_regist: {
-        top:'1370%',
+        top:'1500%',
         left:'35%',
         color:'blue',
     },
     text_email: {
-        top:'22%',
+        top:'33%',
         left:'5%',
     },
     text_password:{
-        top:'25%',
+        top:'38%',
         left:'5%',
     },
     text_password_1:{
-        top:'28%',
+        top:'42%',
         left:'5%',
     },
-
-});
-
-// LIGHT THEME
-const styles_white = StyleSheet.create({
 
 });
