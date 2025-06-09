@@ -9,7 +9,12 @@ import Auth from './src/screens/Auth/Authorization';
 
 
 //Test Page
-import Register from './src/screens/Auth/Registration_Page';
+//import Register from './src/screens/Auth/Registration_Page';
+import Main from './src/screens/Home/Main_Page';
+
+
+
+
 
 export default function App() {
 
@@ -23,8 +28,8 @@ export default function App() {
     return (
         <View style={styles.container }>
 
+<Main/>
 
-       <Register/>
 
         </View>
     );
