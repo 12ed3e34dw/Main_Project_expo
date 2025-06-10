@@ -1,13 +1,84 @@
+// import React, { useState,useEffect, } from 'react';
+// import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// export default function SettingsPage() {
+//
+//     const [isDarkTheme, setIsDarkTheme] = useState(true);
+//     const styles = isDarkTheme ? styles_dark : styles_white;
+//
+//
+//
+//
+//
+//     return (
+//         <View style={styles.container }>
+//
+//             <View style={styles.container_1}>
+//
+//             <Text style={styles.time_text}>11:11</Text>
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//             </View>
+//
+//         </View>
+//     );
+// }
+//
+// // DARK THEME
+// const styles_dark = StyleSheet.create({
+//     container_1:{
+//         top:120,
+//         height:270,
+//          backgroundColor: '#3b3b3b',
+//     },
+//     text:{
+//         top:40,
+//        left:10,
+//     },
+//     time_text:{
+//         top:10,
+//          fontSize:51,
+//         left:40,
+//         color:'white',
+//     },
+//     text_1:{
+//
+//     },
+// });
+//
+// // LIGHT THEME
+// const styles_white = StyleSheet.create({
+//
+// });
+//
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Dimensions} from 'react-native';
 
-
-export default function Calendar_Page() {
+export default function App() {
     const [date, setDate] = useState(new Date());
     const [isDarkTheme, setIsDarkTheme] = useState(true);
+    const styles = isDarkTheme ? styles_dark : styles_white;
 
     const toggleTheme = () => setIsDarkTheme(prev => !prev);
-    const styles = isDarkTheme ? styles_dark : styles_white;
 
     const getCalendarDays = () => {
         const days = [];
@@ -15,7 +86,8 @@ export default function Calendar_Page() {
         const currentMonth = date.getMonth();
 
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-        const firstWeekDay = (firstDayOfMonth.getDay() + 6) % 7;
+        const firstWeekDay = (firstDayOfMonth.getDay() === 0 ? 6 : firstDayOfMonth.getDay() - 1);
+
 
         const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
         const prevMonthLastDay = new Date(currentYear, currentMonth, 0).getDate();
@@ -62,13 +134,12 @@ export default function Calendar_Page() {
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => changeMonth(-1)}>
-                    <Text style={styles.arrows}>{'^'}</Text>
+                    <Text style={styles.arrows}>{'<'}</Text>
                 </TouchableOpacity>
                 <Text style={styles.title}>{`${monthName} ${date.getFullYear()}`}</Text>
                 <TouchableOpacity onPress={() => changeMonth(1)}>
-                    <Text style={styles.arrows}>{'v'}</Text>
+                    <Text style={styles.arrows}>{'>'}</Text>
                 </TouchableOpacity>
-
             </View>
 
             <View style={styles.weekRow}>
@@ -90,140 +161,171 @@ export default function Calendar_Page() {
                     </View>
                 ))}
             </View>
+            <TouchableOpacity style={styles.themeToggle} onPress={toggleTheme}>
+                <Text style={styles.themeText}>
+                    {isDarkTheme ? 'Світла тема' : 'Темна тема'}
+                </Text>
+            </TouchableOpacity>
+
+
         </SafeAreaView>
     );
 }
 
-// DARK THEME
-const styles_dark = StyleSheet.create({
+
+const screenWidth = Dimensions.get('window').width;
+const cellWidth = screenWidth / 7;
+
+const baseStyles = {
     container: {
         flex: 1,
-        backgroundColor: '#3b3b3b',
-        paddingTop: 40,
-        paddingHorizontal: 10,
+        paddingTop: 20,
+        paddingHorizontal: 12,
+        backgroundColor: '#f9f9f9',
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 140,
-        marginBottom: 10,
+        marginBottom: 12,
     },
     title: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
-        left: -105,
+        fontWeight: '600',
+        textAlign: 'center',
+        flex: 1,
+        color: '#1a1a1a',
+    },
+    arrowButton: {
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 6,
     },
     arrows: {
         fontSize: 24,
-        color: 'white',
+        color: '#1a1a1a',
     },
     weekRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 5,
-        top: 10,
+        marginBottom: 4,
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+        paddingBottom: 4,
     },
     weekDay: {
-        width: '14.28%',
+        width: cellWidth,
         textAlign: 'center',
-        fontWeight: 'bold',
-        color: 'white',
+        fontWeight: '500',
+        fontSize: 13,
+       // color: '#555',
     },
     calendarGrid: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        top: 10,
     },
     cell: {
-        width: '14.28%',
+        width: cellWidth,
+        height: cellWidth * 1.05,
         alignItems: 'center',
-        paddingVertical: 10,
+        justifyContent: 'center',
+        borderWidth: 0.5,
+        borderColor: '#e0e0e0',
     },
     dayText: {
         fontSize: 16,
-        color: 'white',
+        textAlign: 'center',
+        color: '#222',
     },
     dimmed: {
         color: '#aaa',
     },
     today: {
         backgroundColor: '#0078d7',
-        padding: 5,
-        borderRadius: 5,
-        color: 'white',
+        borderRadius: 999,
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        color: '#fff',
+        overflow: 'hidden',
     },
     themeToggle: {
-        position: 'absolute',
-        top: 190,
-        right: 120,
-    }
-});
-
-// LIGHT THEME
-const styles_white = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        paddingTop: 40,
-        paddingHorizontal: 10,
+        marginTop: 20,
+        alignSelf: 'center',
+        backgroundColor: '#0078d7',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        borderRadius: 10,
     },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 140,
-        marginBottom: 10,
+    themeText: {
+        color: '#fff',
+        fontWeight: 'bold',
+    }
+};
+
+const styles_dark = StyleSheet.create({
+    ...baseStyles,
+    container: {
+        ...baseStyles.container,
+        backgroundColor: '#1e1e1e',
     },
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#222',
-        left: -105,
+        ...baseStyles.title,
+        color: '#ffffff',
     },
     arrows: {
-        fontSize: 24,
-        color: '#222',
-    },
-    weekRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 5,
-        top: 10,
+        ...baseStyles.arrows,
+        color: '#ffffff',
     },
     weekDay: {
-        width: '14.28%',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        color: '#222',
-    },
-    calendarGrid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        top: 10,
-    },
-    cell: {
-        width: '14.28%',
-        alignItems: 'center',
-        paddingVertical: 10,
+        ...baseStyles.weekDay,
+        color: '#cccccc',
     },
     dayText: {
-        fontSize: 16,
-        color: '#222',
+        ...baseStyles.dayText,
+        color: '#eeeeee',
     },
     dimmed: {
-        color: '#ccc',
+        ...baseStyles.dimmed,
+        color: '#666',
+    },
+    cell: {
+        ...baseStyles.cell,
+        borderColor: '#333',
     },
     today: {
-        backgroundColor: '#0078d7',
-        padding: 5,
-        borderRadius: 5,
-        color: 'white',
+        ...baseStyles.today,
+        backgroundColor: '#0a84ff',
+        color: '#fff',
     },
-    themeToggle: {
-        position: 'absolute',
-        top: 190,
-        right: 120,
-    }
 });
+
+
+const styles_white = StyleSheet.create({
+    ...baseStyles,
+    container: {
+        ...baseStyles.container,
+        backgroundColor: '#ffffff',
+    },
+    title: {
+        ...baseStyles.title,
+        color: '#1a1a1a',
+    },
+    arrows: {
+        ...baseStyles.arrows,
+        color: '#1a1a1a',
+    },
+    weekDay: {
+        ...baseStyles.weekDay,
+        color: '#555',
+    },
+    dayText: {
+        ...baseStyles.dayText,
+        color: '#222',
+    },
+    cell: {
+        ...baseStyles.cell,
+        borderColor: '#e0e0e0',
+    },
+});
+
+
