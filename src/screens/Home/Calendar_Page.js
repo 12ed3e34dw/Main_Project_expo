@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from 'react-native';
-import foto from './src/repeat_3120753.png';
+
 
 export default function Calendar_Page() {
     const [date, setDate] = useState(new Date());
@@ -76,10 +76,6 @@ export default function Calendar_Page() {
                     <Text key={day} style={styles.weekDay}>{day}</Text>
                 ))}
             </View>
-
-            <TouchableOpacity onPress={toggleTheme} style={styles.themeToggle}>
-                <Image source={foto} style={{ width: 25, height: 25 }} />
-            </TouchableOpacity>
 
             <View style={styles.calendarGrid}>
                 {getCalendarDays().map(({ day, isCurrentMonth, isToday }, index) => (

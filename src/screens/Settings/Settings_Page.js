@@ -3,20 +3,17 @@ import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput
 
 
 
-//Main
-import Auth from './src/screens/Auth/Authorization';
 
 
 
-//Test Page
-//import Register from './src/screens/Auth/Registration_Page';
-//import Main from './src/screens/Home/Main_Page';
-//import Calendar from './src/screens/Home/Calendar_Page';
-import Todo_Page from "./src/components/Todo_List/Todo_Page";
 
 
 
-export default function App() {
+
+
+
+
+export default function SettingsPage() {
 
     const [isDarkTheme, setIsDarkTheme] = useState(true);
     const styles = isDarkTheme ? styles_dark : styles_white;
@@ -27,7 +24,7 @@ export default function App() {
 
     return (
         <View style={styles.container }>
-<Todo_Page/>
+
         </View>
     );
 }
