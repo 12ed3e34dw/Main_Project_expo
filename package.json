@@ -17,6 +17,7 @@
     "koa": "^2.16.1",
     "koa-bodyparser": "^4.4.1",
     "koa-router": "^13.0.1",
+    "mongoose": "^8.15.1",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
