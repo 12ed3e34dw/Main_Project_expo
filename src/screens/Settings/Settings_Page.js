@@ -11,7 +11,7 @@ import {darkStyles,lightStyles} from '/src/styles/Setting_styles';
 
 
 
-
+//
 
 
 export default function SettingsPage() {
