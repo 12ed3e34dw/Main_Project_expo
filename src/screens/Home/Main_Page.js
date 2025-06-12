@@ -2,7 +2,7 @@ import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
 import Todo_Page from "../../components/Todo_List/Todo_Page";
 
-import
+import {darkStyles,lightStyles} from '/src/styles/Main_styles';
 
 
 import foto from "../../assets/foto_calendar.png";
@@ -17,7 +17,7 @@ import foto_4 from "../../assets/foto_settings.png";
 export default function Main_Page() {
 
     const [isDarkTheme, setIsDarkTheme] = useState(true);
-    const styles = isDarkTheme ? styles_dark : styles_white;
+    const styles = isDarkTheme ? darkStyles : lightStyles;
 
 
     return (
@@ -71,150 +71,6 @@ export default function Main_Page() {
     );
 }
 
-// DARK THEME
-const styles_dark = StyleSheet.create({
-    container: {},
-    container_Calendar:{
-        left:20,
-        width:390,
-        height:50,
-        top:250,
-        backgroundColor:'white',
-        borderRadius:5,
-        borderWidth: 2,          // товщина рамки
-        borderColor: '#000',     // колір рамки (чорна)
-        padding: 10,
-    },
-    text_cont_calendar:{
-        left:55,
-        top:-45,
-    },
-    container_Map_reported:{
-        left:20,
-        width:390,
-        height:50,
-        top:270,
-        backgroundColor:'white',
-        borderRadius:5,
-        borderWidth: 2,          // товщина рамки
-        borderColor: '#000',     // колір рамки (чорна)
-        padding: 10,
 
-    },
-    text_cont_map_reported:{
-        left:55,
-        top:-45,
-    },
-    container_Profile:{
-        left:20,
-        width:390,
-        height:50,
-        top:240,
-        backgroundColor:'white',
-        borderRadius:5,
-        borderWidth: 2,          // товщина рамки
-        borderColor: '#000',     // колір рамки (чорна)
-        padding: 10,
-    },
-    container_settings:{
-        left:20,
-        width:390,
-        height:50,
-        top:410,
-        backgroundColor:'white',
-        borderRadius:5,
-        borderWidth: 2,          // товщина рамки
-        borderColor: '#000',     // колір рамки (чорна)
-        padding: 10,
-    },
-    text_cont_settings:{
-        left:55,
-        top:-45,
-    },
-    text_cont_profile:{
-        left:55,
-        top:-45,
-    },
-    container_Todo_Page:{
-        left:20,
-        width:390,
-        height:50,
-        top:250,
-        backgroundColor:'white',
-        borderRadius:5,
-        borderWidth: 2,          // товщина рамки
-        borderColor: '#000',     // колір рамки (чорна)
-        padding: 10,             // відступи всередині
-    },
-    text_cont_todo:{
-        top:-50,
-        left:50,
-        width:48,
-        height:48,
-    },
-    image:{
-        top:-10,
-        width:48,
-        height:48,
-    },
-    image_1:{
-        top:-15,
-        width:48,
-        height:48,
-    },
-image_2:{
-    top:-10,
-    width:48,
-    height:48,
-},
-image_3:{
-    top:-10,
-    width:48,
-    height:48,
-},
-
-    image_4:{
-        top:-10,
-        width:48,
-        height:48,
-    },
-
-});
-
-const styles_white = StyleSheet.create({
-    container: {},
-    container_Calendar:{
-
-    },
-    text_cont_calendar:{
-
-    },
-    container_Map_reported:{
-
-
-    },
-    text_cont_map_reported:{
-
-    },
-    container_Profile:{
-
-    },
-    container_settings:{
-
-    },
-    text_cont_settings:{
-
-    },
-    text_cont_profile:{
-
-    },
-    container_Todo_Page:{
-
-    },
-    text_cont_todo:{
-
-    },
-
-});
 
 
