@@ -1,75 +1,3 @@
-// import React, { useState,useEffect, } from 'react';
-// import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// export default function SettingsPage() {
-//
-//     const [isDarkTheme, setIsDarkTheme] = useState(true);
-//     const styles = isDarkTheme ? styles_dark : styles_white;
-//
-//
-//
-//
-//
-//     return (
-//         <View style={styles.container }>
-//
-//             <View style={styles.container_1}>
-//
-//             <Text style={styles.time_text}>11:11</Text>
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//             </View>
-//
-//         </View>
-//     );
-// }
-//
-// // DARK THEME
-// const styles_dark = StyleSheet.create({
-//     container_1:{
-//         top:120,
-//         height:270,
-//          backgroundColor: '#3b3b3b',
-//     },
-//     text:{
-//         top:40,
-//        left:10,
-//     },
-//     time_text:{
-//         top:10,
-//          fontSize:51,
-//         left:40,
-//         color:'white',
-//     },
-//     text_1:{
-//
-//     },
-// });
-//
-// // LIGHT THEME
-// const styles_white = StyleSheet.create({
-//
-// });
-//
 import React, { useState } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Dimensions} from 'react-native';
 
@@ -218,7 +146,7 @@ const baseStyles = {
         textAlign: 'center',
         fontWeight: '500',
         fontSize: 13,
-       // color: '#555',
+        // color: '#555',
     },
     calendarGrid: {
         flexDirection: 'row',
@@ -249,7 +177,7 @@ const baseStyles = {
         overflow: 'hidden',
     },
     themeToggle: {
-        marginTop: 20,
+        marginTop: -50,
         alignSelf: 'center',
         backgroundColor: '#0078d7',
         paddingHorizontal: 20,
@@ -265,12 +193,14 @@ const baseStyles = {
 const styles_dark = StyleSheet.create({
     ...baseStyles,
     container: {
+        left:15,
+        top:70,
         ...baseStyles.container,
-        backgroundColor: '#1e1e1e',
+        backgroundColor: '#1a1a1a', //#1a1a1a
     },
     title: {
         ...baseStyles.title,
-        color: '#ffffff',
+        color: '#ffffff', //#ffffff
     },
     arrows: {
         ...baseStyles.arrows,
@@ -278,31 +208,28 @@ const styles_dark = StyleSheet.create({
     },
     weekDay: {
         ...baseStyles.weekDay,
-        color: '#cccccc',
+        color: '#555', //
     },
     dayText: {
         ...baseStyles.dayText,
-        color: '#eeeeee',
-    },
-    dimmed: {
-        ...baseStyles.dimmed,
-        color: '#666',
+        color: '#222',
     },
     cell: {
         ...baseStyles.cell,
-        borderColor: '#333',
-    },
-    today: {
-        ...baseStyles.today,
-        backgroundColor: '#0a84ff',
-        color: '#fff',
+        borderColor: '#e0e0e0',
     },
 });
+
+
+
+
 
 
 const styles_white = StyleSheet.create({
     ...baseStyles,
     container: {
+        left:15,
+        top:70,
         ...baseStyles.container,
         backgroundColor: '#ffffff',
     },
@@ -327,5 +254,3 @@ const styles_white = StyleSheet.create({
         borderColor: '#e0e0e0',
     },
 });
-
-

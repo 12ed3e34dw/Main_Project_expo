@@ -2,6 +2,7 @@ import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
 import Todo_Page from "../../components/Todo_List/Todo_Page";
 
+import
 
 
 import foto from "../../assets/foto_calendar.png";

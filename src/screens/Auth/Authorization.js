@@ -116,5 +116,8 @@ const styles_dark = StyleSheet.create({
         top:'42%',
         left:'5%',
     },
-
 });
+
+const styles_white=StyleSheet.create({
+
+})
