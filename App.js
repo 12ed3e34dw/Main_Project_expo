@@ -2,7 +2,7 @@ import React, { useState,useEffect, } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, TextInput,   Dimensions,} from 'react-native';
 
 
-
+//
 //Main
 import Auth from './src/screens/Auth/Authorization';
 
